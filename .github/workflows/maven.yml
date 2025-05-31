@@ -127,8 +127,8 @@ jobs:
         with:
           context: .
           push: true
-          tags: adijaiswal/bankapp:latest
-          file: ./Dockerfile
+          tags: sugumar/bankapp:latest
+          file: ./Github-Actions-Project-main/Dockerfile
 
   deploy_to_kubernetes:
     runs-on: self-hosted
