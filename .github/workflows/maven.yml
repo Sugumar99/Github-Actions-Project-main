@@ -55,6 +55,7 @@ jobs:
         cache: maven
     - name: Unit Test Cases
       run: mvn test
+      working-directory: ./Github-Actions-Project-main
 
   build_project_and_sonar_scan:
     runs-on: self-hosted
