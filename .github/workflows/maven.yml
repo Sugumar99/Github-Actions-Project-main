@@ -36,11 +36,13 @@ jobs:
 
     - name: Trivy FS Scan
       run: trivy fs --format table -o fs-report.json .
+      working-directory: ./Github-Actions-Project-main
 
     - name: Gitleaks Installation
       run: sudo apt install gitleaks -y
     - name: Gitleaks Code Scan
       run: gitleaks detect source . -r gitleaks-report.json -f json
+      working-directory: ./Github-Actions-Project-main
 
   test:
     runs-on: self-hosted
@@ -70,6 +72,7 @@ jobs:
         cache: maven
     - name: Build Project
       run: mvn package
+      working-directory: ./Github-Actions-Project-main
     - name: Upload JAR artifact
       uses: actions/upload-artifact@v4
       with:
@@ -151,5 +154,6 @@ jobs:
     - name: Deploy to EKS
       run: |
         kubectl apply -f ds.yml
+        
 
   
